@@ -16,21 +16,29 @@ testa = np.matrix(test)
 # N is the size of the grid
 def placement(x,y ,n):
     global test
+    # for a given x and y value, check if it clashes with columns
     for i in range(0,9):
         if test[x][i] == n:
             return False
+
+    # for a given x and y value, check if it clashes with rows
     for i in range(0,9):   
         if test[i][y] == n:
             return False
 
-    # check for 3x3
-    # hypothetically a 9x9 matrix, has 9 3x3 squares. first row [y0=0, y1 = 2][x0 = 0, x1 = 2] and next cube [y0 = 3, y1=5][x0=0, x1=2] ....
+    # with given x or y, check its square of it clashes with rows
+    # hypothetically a 9x9 matrix, has 9 3x3 squares. first row [y0=0, y1 = 2][x0 = 0, x1 = 2] and next cube [y0 = 3, y1=5][x0=0, x1=2]
+    # for example if X = 2, Y = 3, the it will be the second square whose region is [x: 0 - 2, y:3-5]
+    # so at x = 2, we need it to start at 0, since x !> 3, and y to start at 3 since y>3
+    # a factor of 3
 
-    y0 = 9/3
 
-    for x in range(y0, y1)
-        for i in range(0,10):
-            if test[x][y] == i;
+    y0 = (y//3)*3 # For example if y = 5, y//3 would be 1, and 1*3 = 3. at y =5, the square is at y=3
+    x0 = (x//3)*3 
+
+    for i in range(0,3):
+        for j in range(0,3):
+            if test[x0+i][y0+j] == n
             return false
 
     return True
