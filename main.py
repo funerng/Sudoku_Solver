@@ -47,21 +47,14 @@ def solve():
     global test
     for x in range(0,9):
         for y in range (0,9):
-            if test[x][y] == 0:
-                print("y is at {}".format(y))
+            if test[x][y] is 0:
                 for n in range(1,10):
-                    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
-                    print("Trying {} at [{}][{}]".format(n,x,y))
-                    if placement(x,y,n) == True:
+                    if placement(x,y,n) is True:
                         test[x][y] = n # places the value n in the box
-                        print("Placing {} in [{}][{}] is valid".format(n,x,y))
-                        print(np.matrix(test))
                         solve() # runs the script again
                         test[x][y] = 0
-                    else:
-                        print("Placing {} in [{}][{}] is invalid".format(n,x,y))
                 return 
-    return print(np.matrix(test))
+    print(np.matrix(test))
 
 
 if __name__ == "__main__":
