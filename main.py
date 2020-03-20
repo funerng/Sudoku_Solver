@@ -39,7 +39,7 @@ def placement(x,y ,n):
     for i in range(0,3):
         for j in range(0,3):
             if test[x0+i][y0+j] == n:
-                return false
+                return False 
 
     return True
 
@@ -48,34 +48,19 @@ def solve():
     for x in range(0,9):
         for y in range (0,9):
             if test[x][y] == 0:
-                for n in range(0,10):
+                print("y is at {}".format(y))
+                for n in range(1,10):
+                    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~`")
+                    print("Trying {} at [{}][{}]".format(n,x,y))
                     if placement(x,y,n) == True:
-                        test[x][y] = n
+                        test[x][y] = n # places the value n in the box
+                        print("Placing {} in [{}][{}] is valid".format(n,x,y))
+                        print(np.matrix(test))
+                        solve() # runs the script again
+                    else:
+                        print("Placing {} in [{}][{}] is invalid".format(n,x,y))
+                return print("err? but why")
     return print(np.matrix(test))
-
-
-
-
-
-
-def game(n=None):
-    if n is None:
-        n=3
-    global test
-    test= np.zeros((n,n), int)
-    for x in range(0,n):
-        for y in range(0,n):
-            test[x][y] = randint(0,9)
-
-    # randomly deletes values
-    for i in range (0,5):
-        test[randint(0,n-1)][randint(0,n-1)] = 0 
-    # Matrix created now to check for proper uniqueness, rows cannot have same value, cols also can't
-
-
-    #square = np.array([[1,2,3], [4,5,6], [7,8,9]])
-    
-    return print("to be solved"),print(test)
 
 
 if __name__ == "__main__":
