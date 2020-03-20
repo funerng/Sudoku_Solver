@@ -38,8 +38,8 @@ def placement(x,y ,n):
 
     for i in range(0,3):
         for j in range(0,3):
-            if test[x0+i][y0+j] == n
-            return false
+            if test[x0+i][y0+j] == n:
+                return false
 
     return True
 
