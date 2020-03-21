@@ -11,7 +11,7 @@ test = [[0, 0, 6, 3, 9, 7, 8, 0, 0],
         [0, 4, 5, 7, 6, 0, 3, 1, 8],
         [1, 8, 7, 5, 0, 9, 0, 6, 4],]
 
-testa = np.matrix(test)
+test = np.matrix(test)
 
 # N is the size of the grid
 def placement(x,y ,n):
